@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y9e-hd-2go">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="fengshui" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eight-Tigram-Compass.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dEe-oz-cJr">
+                                <rect key="frame" x="66" y="212" width="243" height="243"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dEe-oz-cJr" secondAttribute="height" multiplier="1:1" id="NRJ-gE-bol"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v7-xF-iRw">
+                                <rect key="frame" x="0.0" y="0.0" width="127" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dEe-oz-cJr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2CP-Gr-X3h"/>
+                            <constraint firstItem="dEe-oz-cJr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="kr9-QP-Esr"/>
+                            <constraint firstItem="dEe-oz-cJr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="m42-VP-v4e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgComapss" destination="dEe-oz-cJr" id="kXx-l8-5Zp"/>
+                        <outlet property="lbDegree" destination="5v7-xF-iRw" id="eSu-iw-2hA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.599999999999994" y="37.331334332833585"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="Fn8-r6-bNJ">
+            <objects>
+                <viewController id="7la-3v-eio" customClass="TestViewController" customModule="fengshui" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lc5-6y-SZJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="KW7-ye-OaY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o5U-7Z-YqW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-bR-4g5" customClass="TriangelView" customModule="fengshui" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="延年" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EHO-XG-U4A">
+                                        <rect key="frame" x="167" y="295" width="40" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="ZbA-Bc-ubq"/>
+                                            <constraint firstAttribute="width" constant="40" id="lL6-vb-eUk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="EHO-XG-U4A" secondAttribute="bottom" id="DLU-Wk-134"/>
+                                    <constraint firstItem="EHO-XG-U4A" firstAttribute="centerX" secondItem="6CC-bR-4g5" secondAttribute="centerX" id="dAf-qb-dy0"/>
+                                    <constraint firstAttribute="width" secondItem="6CC-bR-4g5" secondAttribute="height" multiplier="1:1" id="v6L-28-h86"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkP-r4-5ud" customClass="TriangelView" customModule="fengshui" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="延年" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="leD-5v-bbG">
+                                        <rect key="frame" x="167" y="295" width="40" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="AIo-CS-zhy"/>
+                                            <constraint firstAttribute="width" constant="40" id="XSD-8N-cce"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="延年" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-oJ-5iw">
+                                        <rect key="frame" x="144" y="315" width="20" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="a97-l2-icb"/>
+                                            <constraint firstAttribute="height" constant="40" id="iUa-Ss-rFw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cfg-oJ-5iw" firstAttribute="centerY" secondItem="leD-5v-bbG" secondAttribute="centerY" id="RQW-Rf-CaE"/>
+                                    <constraint firstAttribute="bottom" secondItem="leD-5v-bbG" secondAttribute="bottom" id="grn-Lp-U0R"/>
+                                    <constraint firstAttribute="width" secondItem="RkP-r4-5ud" secondAttribute="height" multiplier="1:1" id="kCM-MN-v8Q"/>
+                                    <constraint firstItem="leD-5v-bbG" firstAttribute="leading" secondItem="cfg-oJ-5iw" secondAttribute="trailing" constant="3" id="pNG-Kx-7sy"/>
+                                    <constraint firstItem="leD-5v-bbG" firstAttribute="centerX" secondItem="RkP-r4-5ud" secondAttribute="centerX" id="ycy-Jn-uX0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RkP-r4-5ud" firstAttribute="centerY" secondItem="o5U-7Z-YqW" secondAttribute="centerY" id="1iA-ZA-glc"/>
+                            <constraint firstItem="6CC-bR-4g5" firstAttribute="width" secondItem="6CC-bR-4g5" secondAttribute="height" multiplier="1:1" id="EPj-Kq-qbr"/>
+                            <constraint firstItem="6CC-bR-4g5" firstAttribute="leading" secondItem="RkP-r4-5ud" secondAttribute="leading" id="MfJ-6R-JM9"/>
+                            <constraint firstItem="6CC-bR-4g5" firstAttribute="width" secondItem="RkP-r4-5ud" secondAttribute="width" id="Pdx-2w-SJq"/>
+                            <constraint firstItem="RkP-r4-5ud" firstAttribute="centerX" secondItem="o5U-7Z-YqW" secondAttribute="centerX" id="R65-Ah-vVX"/>
+                            <constraint firstItem="RkP-r4-5ud" firstAttribute="leading" secondItem="o5U-7Z-YqW" secondAttribute="leading" id="iAj-UO-nam"/>
+                            <constraint firstItem="6CC-bR-4g5" firstAttribute="top" secondItem="RkP-r4-5ud" secondAttribute="top" id="kga-qU-app"/>
+                            <constraint firstAttribute="trailing" secondItem="RkP-r4-5ud" secondAttribute="trailing" id="ojN-08-v0S"/>
+                            <constraint firstItem="6CC-bR-4g5" firstAttribute="height" secondItem="RkP-r4-5ud" secondAttribute="height" id="tXa-Sl-9ZB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lbLeftTip" destination="cfg-oJ-5iw" id="5kf-7F-ztD"/>
+                        <outlet property="lbName" destination="leD-5v-bbG" id="wdd-B8-Wub"/>
+                        <outlet property="view0" destination="6CC-bR-4g5" id="UQi-qn-XRx"/>
+                        <outlet property="view1" destination="RkP-r4-5ud" id="XtR-qh-OvJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KU-2K-jfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="522.18890554722645"/>
+        </scene>
+        <!--Compass View Controller-->
+        <scene sceneID="MF5-aF-POl">
+            <objects>
+                <viewController id="y9e-hd-2go" customClass="CompassViewController" customModule="fengshui" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LWe-PK-WTF"/>
+                        <viewControllerLayoutGuide type="bottom" id="3hc-9j-vux"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1DE-R3-TDC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmb-cd-Vvd" customClass="EightTrigramTriangelPartView" customModule="fengshui" customModuleProvider="target">
+                                <rect key="frame" x="20" y="166.5" width="335" height="335"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tmb-cd-Vvd" secondAttribute="height" multiplier="1:1" id="fBw-Li-0gf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tmb-cd-Vvd" firstAttribute="leading" secondItem="1DE-R3-TDC" secondAttribute="leading" constant="20" id="NAv-M4-XcS"/>
+                            <constraint firstAttribute="trailing" secondItem="tmb-cd-Vvd" secondAttribute="trailing" constant="20" id="uVc-Jo-UaZ"/>
+                            <constraint firstItem="tmb-cd-Vvd" firstAttribute="centerY" secondItem="1DE-R3-TDC" secondAttribute="centerY" id="vL2-Y4-1zd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="EightTrigramView" destination="tmb-cd-Vvd" id="v9X-5H-qY1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KmH-F3-P4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="604"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Eight-Tigram-Compass.jpg" width="2151" height="2151"/>
+    </resources>
+</document>
