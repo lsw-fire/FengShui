@@ -9,34 +9,97 @@
 import UIKit
 
 import CoreLocation
+import CoreMotion
 
 class CompassViewController: UIViewController , CLLocationManagerDelegate{
-
+    
+    @IBOutlet weak var btnDirection: UIButton!
+    @IBOutlet weak var lbHomeDirection: UILabel!
+    @IBOutlet weak var lbAngelText: UILabel!
     @IBOutlet weak var eightTrigramView: EightTrigramTriangelPartView!
     
+    @IBOutlet weak var innerView: InnerView!
     var locationManager: CLLocationManager!
     
+    let manager = CMMotionManager()
+    
+    @IBOutlet weak var outterView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
         // Do any additional setup after loading the view.
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.startUpdatingHeading()
-
+        
+        eightTrigramView.setup()
+        
+        createOutterView()
+        
+        createGravityInnerView()
+        
+        startGyro()
+    }
+    
+    func startGyro() {
+        if manager.isGyroAvailable {
+            manager.gyroUpdateInterval = 0.1
+            manager.startGyroUpdates()
+            
+            if manager.isDeviceMotionAvailable {
+                manager.deviceMotionUpdateInterval = 0.01
+                
+                manager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: { (data, error) in
+                    
+                    if error != nil{
+                        self.manager.stopGyroUpdates()
+                    }
+                    
+                    if let gravity = data?.gravity{
+                        let x = self.gravityInnerViewCenter.x + CGFloat(gravity.x * 100)
+                        let y = self.gravityInnerViewCenter.y + CGFloat(gravity.y * 100)
+                        self.gravityInnerView.center = CGPoint(x: x, y: y)
+                    }
+                })
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        eightTrigramView.setup()
+    }
+    
+    func creatInnerViewTarget(frame: CGRect) -> CAShapeLayer{
         
+        let width = frame.width
+        let height = frame.height
+        
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: frame.origin.x, y: (frame.origin.y + height/2)))
+        path.addLine(to: CGPoint(x: (frame.origin.x + width), y: (frame.origin.y + height/2)))
+        
+        path.move(to: CGPoint(x: (frame.origin.x + width/2), y: frame.origin.y))
+        path.addLine(to: CGPoint(x: (frame.origin.x + width/2), y: (frame.origin.y + height)))
+        
+        let perLayer = CAShapeLayer()
+        perLayer.lineWidth = 1;
+        perLayer.strokeColor = UIColor.orange.cgColor
+        perLayer.path = path.cgPath
+        
+        return perLayer
+    }
+    
+    func createOutterView() {
         //let width = eightTrigramView.frame.width + 20
-        let width = self.view.frame.width
-        let height = self.view.frame.height
+        let width = outterView.frame.width
+        //let width = self.view.frame.width
+        //let height = self.view.frame.height
         
-        let center = CGPoint(x: width/2, y: height/2)
+        let center = CGPoint(x: width/2, y: width/2)
         
         let perAngle = 2 * M_PI / 360;
         //我们需要计算出每段弧线的起始角度和结束角度
@@ -47,7 +110,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             let endAngel   = startAngel + perAngle/10
             
             let tickPath = UIBezierPath.init(arcCenter: center, radius: (width-30)/2, startAngle:CGFloat(startAngel), endAngle: CGFloat(endAngel), clockwise: true)
-           
+            
             let perLayer = CAShapeLayer()
             
             if (i % 10 == 0) {
@@ -57,10 +120,11 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
                 
                 let point = self.calculateTextPositonWithArcCenter(center: center, angel: CGFloat(startAngel), r: (width-15)/2)
                 
-                let tickText = String.init(format: "%d", i)
+                let num = i - 270 <= 0 ? abs(i - 270) : 360 - abs( i - 270)
+                let tickText = String.init(format: "%d", num)
                 
                 let text = UILabel(frame: CGRect(x: point.x - 10, y: point.y - 10, width: 20, height: 20))
-                text.text          = tickText;
+                text.text = tickText;
                 let font = UIFont(name: "Arial", size: CGFloat(8))
                 text.font = font;
                 text.textColor = UIColor.brown
@@ -69,8 +133,9 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
                 text.transform = CGAffineTransform(rotationAngle: CGFloat(angel + M_PI/2))
                 print(startAngel)
                 //text.backgroundColor = UIColor.blue
-                self.view.addSubview(text)
+                //self.view.addSubview(text)
                 //eightTrigramView.addSubview(text)
+                outterView.addSubview(text)
                 
                 
             }else{
@@ -80,12 +145,32 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             }
             
             perLayer.path = tickPath.cgPath;
-            self.view.layer.addSublayer(perLayer)
+            //self.view.layer.addSublayer(perLayer)
             //eightTrigramView.layer.addSublayer(perLayer)
-            
-            
+            outterView.layer.addSublayer(perLayer)
             
         }
+        
+        innerView.backgroundColor = UIColor.clear
+    }
+    
+    var gravityInnerView : UIView!
+    var gravityInnerViewCenter : CGPoint!
+    
+    func createGravityInnerView() {
+        
+        let width = innerView.frame.width
+        let center = CGPoint(x: width/2, y: width/2)
+        gravityInnerViewCenter = center
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        view.center = center
+        view.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.3)
+        view.layer.cornerRadius = view.frame.size.height/2
+        view.layer.masksToBounds = true
+        gravityInnerView = view
+        innerView.addSubview(view)
+        innerView.layer.addSublayer(creatInnerViewTarget(frame: view.frame))
     }
     
     func calculateTextPositonWithArcCenter(center: CGPoint, angel: CGFloat, r: CGFloat) -> CGPoint {
@@ -94,7 +179,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         
         return CGPoint(x: center.x + x, y: center.y - y)
     }
-
+    
     
     var angel:Float = 0
     func transformAction() {
@@ -107,27 +192,78 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         eightTrigramView.transform = CGAffineTransform(rotationAngle: CGFloat( angel))
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-
-        let val = CGFloat(newHeading.magneticHeading * M_PI/180)
-        print(val)
-        eightTrigramView.transform = CGAffineTransform(rotationAngle: val)
+        
+        let val = CGFloat(M_PI - newHeading.magneticHeading * M_PI/180)
+        
+        let angelText = (newHeading.magneticHeading - 180) >= 0 ? (newHeading.magneticHeading - 180) :  (newHeading.magneticHeading + 180)
+        //print(angelText)
+        
+        
+        let angel = CGAffineTransform(rotationAngle: val)
+        eightTrigramView.transform = angel
+        outterView.transform = angel
+        
+        lbAngelText.text = Int(angelText).description
     }
+    
+    let names = ["坎","艮","震","巽","离","坤","兑","乾"]
+    
+    var isDirectionStopped = false
+    
+    @IBAction func btnConfirmDirection(_ sender: Any) {
+        
+        if isDirectionStopped
+        {
+            startGyro()
+            locationManager.startUpdatingHeading()
+            
+            isDirectionStopped = false
 
+            btnDirection.setTitle("定坐向", for: .normal)
+        }
+        else
+        {
+            var name = ""
+            let currentAngel = Int(lbAngelText.text!)
+            //22.5 = 45/2
+            if let ca = currentAngel
+            {
+                let perPart = (Double(ca) - 22.5)/45
+                if perPart < 0 {
+                    name = names[0]
+                }else{
+                    name = names[Int(perPart) + 1]
+                }
+                
+                lbHomeDirection.text = name
+            }
+            
+            manager.stopGyroUpdates()
+            manager.stopDeviceMotionUpdates()
+            locationManager.stopUpdatingHeading()
+            
+            isDirectionStopped = true
+            
+            btnDirection.setTitle("复位", for: .normal)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

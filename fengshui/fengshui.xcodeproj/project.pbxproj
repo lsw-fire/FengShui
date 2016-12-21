@@ -12,6 +12,7 @@
 		192089BF1E08F0D900AE1370 /* EightTrigramTriangelPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192089BE1E08F0D900AE1370 /* EightTrigramTriangelPartView.swift */; };
 		192089C11E08F79100AE1370 /* EightTrigramDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192089C01E08F79100AE1370 /* EightTrigramDrawView.swift */; };
 		192089C31E09189400AE1370 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192089C21E09189400AE1370 /* CompassViewController.swift */; };
+		192089C51E09856200AE1370 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192089C41E09856200AE1370 /* InnerView.swift */; };
 		19A25EEC1E079439003B1E90 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A25EEB1E079439003B1E90 /* TestViewController.swift */; };
 		19A25EEE1E079565003B1E90 /* TriangelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A25EED1E079565003B1E90 /* TriangelView.swift */; };
 		19F5E4031E0237AF001C9157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5E4021E0237AF001C9157 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		192089BE1E08F0D900AE1370 /* EightTrigramTriangelPartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightTrigramTriangelPartView.swift; sourceTree = "<group>"; };
 		192089C01E08F79100AE1370 /* EightTrigramDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightTrigramDrawView.swift; sourceTree = "<group>"; };
 		192089C21E09189400AE1370 /* CompassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassViewController.swift; sourceTree = "<group>"; };
+		192089C41E09856200AE1370 /* InnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerView.swift; sourceTree = "<group>"; };
 		19A25EEB1E079439003B1E90 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		19A25EED1E079565003B1E90 /* TriangelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangelView.swift; sourceTree = "<group>"; };
 		19F5E3FF1E0237AE001C9157 /* fengshui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fengshui.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				19F5E4111E0237AF001C9157 /* Info.plist */,
 				19F5E4091E0237AF001C9157 /* fengshui.xcdatamodeld */,
 				19A25EEB1E079439003B1E90 /* TestViewController.swift */,
+				192089C41E09856200AE1370 /* InnerView.swift */,
 				19A25EED1E079565003B1E90 /* TriangelView.swift */,
 				192089C21E09189400AE1370 /* CompassViewController.swift */,
 				192089BE1E08F0D900AE1370 /* EightTrigramTriangelPartView.swift */,
@@ -308,6 +311,7 @@
 				19A25EEC1E079439003B1E90 /* TestViewController.swift in Sources */,
 				192089BD1E08F05300AE1370 /* EightTrigramView.swift in Sources */,
 				192089C11E08F79100AE1370 /* EightTrigramDrawView.swift in Sources */,
+				192089C51E09856200AE1370 /* InnerView.swift in Sources */,
 				19A25EEE1E079565003B1E90 /* TriangelView.swift in Sources */,
 				19F5E4031E0237AF001C9157 /* AppDelegate.swift in Sources */,
 			);

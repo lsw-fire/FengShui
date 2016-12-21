@@ -41,27 +41,39 @@ import UIKit
                 cellWidth = self.frame.width
             }
             cell.vDrawTriangel.widthForShow = cellWidth
-           
+            
+            cell.lbLeftTip.text = ""
+            cell.lbRightTip.text = ""
+            cell.lbCenterTip.text = "坎"  //5
+            cell.lbCenterTip.textColor = UIColor.white
             if i == 7 {
+                cell.lbCenterTip.text = "巽" //8
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI - M_PI/4  ))
             }
             if i == 8 {
+                cell.lbCenterTip.text = "坤"  //2
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI + M_PI/4  ))
             }
             if i == 2 {
+                cell.lbCenterTip.text = "艮"  //6
+
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI/4  ))
             }
             if i == 3 {
+                cell.lbCenterTip.text = "震"  //7
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI/2  ))
             }
             
             if i == 4 {
+                cell.lbCenterTip.text = "乾"  //4
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( -M_PI/4  ))
             }
             if i == 5 {
+                cell.lbCenterTip.text = "兑"  //3
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( -M_PI/2  ))
             }
             if i == 6 {
+                cell.lbCenterTip.text = "离"  //1 
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI  ))
             }
             
@@ -79,7 +91,7 @@ import UIKit
             
         }
         
-        self.backgroundColor = UIColor.yellow
+        self.backgroundColor = UIColor.clear
     
 //        let svvertical = UIStackView(arrangedSubviews: verticalArrayView)
 //        
