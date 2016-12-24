@@ -9,6 +9,8 @@
 import UIKit
 
  @IBDesignable class EightTrigramDrawView: UIView {
+    
+    var fillColor: UIColor = UIColor.orange
 
     var widthForShow: CGFloat = 0
     // Only override draw() if you perform custom drawing.
@@ -23,21 +25,22 @@ import UIKit
         let center = CGPoint(x: width/2, y: width/2)
         let radius = CGFloat(width/2)
         
-        context?.setFillColor(UIColor.orange.cgColor)
-        
         let begin =
              (0.125 + 0.0625) * M_PI * 2
         let end =
             ((0.125 + 0.0625) + 0.125) * M_PI * 2
         
+        context?.setFillColor(fillColor.cgColor)
+        context?.setStrokeColor(UIColor.white.cgColor)
         context?.addArc(center: center, radius: radius, startAngle: CGFloat(begin), endAngle: CGFloat(end), clockwise: false)
         context?.addLine(to: center)
-        context?.drawPath(using: .fill)
+        context?.drawPath(using: .fillStroke)
         
         //把圆边去了，只显示八角形
         context?.setFillColor(UIColor.white.cgColor)
         context?.setStrokeColor(UIColor.white.cgColor)
         context?.addArc(center: center, radius: radius, startAngle: CGFloat(begin), endAngle: CGFloat(end), clockwise: false)
+        
         context?.drawPath(using: .fillStroke)
 
         

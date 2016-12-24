@@ -14,10 +14,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var btnColor = UIColor.orange
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = btnColor
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : btnColor]
+
         return true
+    }
+    
+    var selfTrigramIndex:String = ""
+    var houseTrigram:String = ""
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let schema = url.scheme
+        
+        if schema?.caseInsensitiveCompare("OpenFengShuiSelfTrigram") == .orderedSame {
+            
+            let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false)
+            let queryItems = components?.queryItems
+            var dic = Dictionary<String,String>()
+            
+            for item in queryItems! {
+                dic.updateValue(item.value!, forKey: item.name)
+            }
+            
+            if dic.keys.contains("selfTrigram") {
+                let from = dic["selfTrigram"]!
+                selfTrigramIndex = from
+                print(from)
+            }
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            
+            let vc = storyBoard.instantiateViewController(withIdentifier: "HouseSelfCompareViewController") as! HouseSelfCompareViewController
+            
+            if let nav = self.window?.rootViewController as? UINavigationController{
+                nav.pushViewController(vc, animated: true)
+            }
+        }
+        
+        return true
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

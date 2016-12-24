@@ -15,6 +15,14 @@
 		192089C51E09856200AE1370 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192089C41E09856200AE1370 /* InnerView.swift */; };
 		19A25EEC1E079439003B1E90 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A25EEB1E079439003B1E90 /* TestViewController.swift */; };
 		19A25EEE1E079565003B1E90 /* TriangelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A25EED1E079565003B1E90 /* TriangelView.swift */; };
+		19D9A3AB1E0D637600C7F0EF /* TrigramViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */; };
+		19D9A3AC1E0D637600C7F0EF /* TrigramViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */; };
+		19D9A3AD1E0D637600C7F0EF /* TrigramViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3AA1E0D637600C7F0EF /* TrigramViewContainer.swift */; };
+		19D9A3AF1E0D646900C7F0EF /* HouseTrigramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3AE1E0D646900C7F0EF /* HouseTrigramViewController.swift */; };
+		19D9A3B11E0E465B00C7F0EF /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3B01E0E465B00C7F0EF /* SettingTableViewController.swift */; };
+		19D9A3B71E0E50C400C7F0EF /* HouseSelfCompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3B61E0E50C400C7F0EF /* HouseSelfCompareViewController.swift */; };
+		19D9A3B91E0E9E2900C7F0EF /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D9A3B81E0E9E2900C7F0EF /* core.framework */; };
+		19D9A3BA1E0E9E2900C7F0EF /* core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19D9A3B81E0E9E2900C7F0EF /* core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19F5E4031E0237AF001C9157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5E4021E0237AF001C9157 /* AppDelegate.swift */; };
 		19F5E4051E0237AF001C9157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5E4041E0237AF001C9157 /* ViewController.swift */; };
 		19F5E4081E0237AF001C9157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F5E4061E0237AF001C9157 /* Main.storyboard */; };
@@ -43,6 +51,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		19D9A3BB1E0E9E2900C7F0EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				19D9A3BA1E0E9E2900C7F0EF /* core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		192089BA1E08D90400AE1370 /* EightTrigramView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EightTrigramView.xib; sourceTree = "<group>"; };
 		192089BC1E08F05300AE1370 /* EightTrigramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightTrigramView.swift; sourceTree = "<group>"; };
@@ -52,6 +74,14 @@
 		192089C41E09856200AE1370 /* InnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerView.swift; sourceTree = "<group>"; };
 		19A25EEB1E079439003B1E90 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		19A25EED1E079565003B1E90 /* TriangelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangelView.swift; sourceTree = "<group>"; };
+		19D9A3A41E0D04B900C7F0EF /* core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrigramViewCell.swift; sourceTree = "<group>"; };
+		19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrigramViewCell.xib; sourceTree = "<group>"; };
+		19D9A3AA1E0D637600C7F0EF /* TrigramViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrigramViewContainer.swift; sourceTree = "<group>"; };
+		19D9A3AE1E0D646900C7F0EF /* HouseTrigramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseTrigramViewController.swift; sourceTree = "<group>"; };
+		19D9A3B01E0E465B00C7F0EF /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		19D9A3B61E0E50C400C7F0EF /* HouseSelfCompareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseSelfCompareViewController.swift; sourceTree = "<group>"; };
+		19D9A3B81E0E9E2900C7F0EF /* core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F5E3FF1E0237AE001C9157 /* fengshui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fengshui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F5E4021E0237AF001C9157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F5E4041E0237AF001C9157 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D9A3B91E0E9E2900C7F0EF /* core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +129,8 @@
 		19F5E3F61E0237AE001C9157 = {
 			isa = PBXGroup;
 			children = (
+				19D9A3B81E0E9E2900C7F0EF /* core.framework */,
+				19D9A3A41E0D04B900C7F0EF /* core.framework */,
 				19F5E4011E0237AF001C9157 /* fengshui */,
 				19F5E4191E0237AF001C9157 /* fengshuiTests */,
 				19F5E4241E0237AF001C9157 /* fengshuiUITests */,
@@ -119,6 +152,11 @@
 		19F5E4011E0237AF001C9157 /* fengshui */ = {
 			isa = PBXGroup;
 			children = (
+				19D9A3B01E0E465B00C7F0EF /* SettingTableViewController.swift */,
+				19D9A3AE1E0D646900C7F0EF /* HouseTrigramViewController.swift */,
+				19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */,
+				19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */,
+				19D9A3AA1E0D637600C7F0EF /* TrigramViewContainer.swift */,
 				19F5E4331E026774001C9157 /* Eight-Tigram-Compass.jpg */,
 				19F5E4021E0237AF001C9157 /* AppDelegate.swift */,
 				19F5E4041E0237AF001C9157 /* ViewController.swift */,
@@ -135,6 +173,7 @@
 				192089BA1E08D90400AE1370 /* EightTrigramView.xib */,
 				192089BC1E08F05300AE1370 /* EightTrigramView.swift */,
 				192089C01E08F79100AE1370 /* EightTrigramDrawView.swift */,
+				19D9A3B61E0E50C400C7F0EF /* HouseSelfCompareViewController.swift */,
 			);
 			path = fengshui;
 			sourceTree = "<group>";
@@ -175,6 +214,7 @@
 				19F5E3FB1E0237AE001C9157 /* Sources */,
 				19F5E3FC1E0237AE001C9157 /* Frameworks */,
 				19F5E3FD1E0237AE001C9157 /* Resources */,
+				19D9A3BB1E0E9E2900C7F0EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -278,6 +318,7 @@
 				19F5E4341E026774001C9157 /* Eight-Tigram-Compass.jpg in Resources */,
 				192089BB1E08D90400AE1370 /* EightTrigramView.xib in Resources */,
 				19F5E4101E0237AF001C9157 /* LaunchScreen.storyboard in Resources */,
+				19D9A3AC1E0D637600C7F0EF /* TrigramViewCell.xib in Resources */,
 				19F5E40D1E0237AF001C9157 /* Assets.xcassets in Resources */,
 				19F5E4081E0237AF001C9157 /* Main.storyboard in Resources */,
 			);
@@ -304,13 +345,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D9A3B11E0E465B00C7F0EF /* SettingTableViewController.swift in Sources */,
 				192089C31E09189400AE1370 /* CompassViewController.swift in Sources */,
+				19D9A3B71E0E50C400C7F0EF /* HouseSelfCompareViewController.swift in Sources */,
+				19D9A3AD1E0D637600C7F0EF /* TrigramViewContainer.swift in Sources */,
 				192089BF1E08F0D900AE1370 /* EightTrigramTriangelPartView.swift in Sources */,
 				19F5E4051E0237AF001C9157 /* ViewController.swift in Sources */,
+				19D9A3AF1E0D646900C7F0EF /* HouseTrigramViewController.swift in Sources */,
 				19F5E40B1E0237AF001C9157 /* fengshui.xcdatamodeld in Sources */,
 				19A25EEC1E079439003B1E90 /* TestViewController.swift in Sources */,
 				192089BD1E08F05300AE1370 /* EightTrigramView.swift in Sources */,
 				192089C11E08F79100AE1370 /* EightTrigramDrawView.swift in Sources */,
+				19D9A3AB1E0D637600C7F0EF /* TrigramViewCell.swift in Sources */,
 				192089C51E09856200AE1370 /* InnerView.swift in Sources */,
 				19A25EEE1E079565003B1E90 /* TriangelView.swift in Sources */,
 				19F5E4031E0237AF001C9157 /* AppDelegate.swift in Sources */,

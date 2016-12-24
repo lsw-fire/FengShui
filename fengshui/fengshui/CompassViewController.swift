@@ -10,6 +10,7 @@ import UIKit
 
 import CoreLocation
 import CoreMotion
+import core
 
 class CompassViewController: UIViewController , CLLocationManagerDelegate{
     
@@ -32,6 +33,8 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         // Do any additional setup after loading the view.
         
         locationManager = CLLocationManager()
+        //locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
         locationManager.startUpdatingHeading()
         
@@ -42,7 +45,24 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         createGravityInnerView()
         
         startGyro()
+        
+        self.view.tintColor = defaultTextColor
+        
+        lbHomeDirection.textColor = defaultTextColor
+        lbAngelText.textColor = defaultTextColor
+        
+        self.title = "宅"
+        
+        Button.setStyleFor(button: btnDirection)
+        btnHouseDirection.isEnabled = false
+        Button.setStyleFor(button: btnHouseDirection)
+        
+        outterView.backgroundColor = UIColor.clear
+        
+        
     }
+    
+    var defaultTextColor = UIColor.orange
     
     func startGyro() {
         if manager.isGyroAvailable {
@@ -79,15 +99,17 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         let height = frame.height
         
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: frame.origin.x, y: (frame.origin.y + height/2)))
-        path.addLine(to: CGPoint(x: (frame.origin.x + width), y: (frame.origin.y + height/2)))
-        
-        path.move(to: CGPoint(x: (frame.origin.x + width/2), y: frame.origin.y))
-        path.addLine(to: CGPoint(x: (frame.origin.x + width/2), y: (frame.origin.y + height)))
+        //        path.move(to: CGPoint(x: frame.origin.x, y: (frame.origin.y + height/2)))
+        //        path.addLine(to: CGPoint(x: (frame.origin.x + width), y: (frame.origin.y + height/2)))
+        //
+        //        path.move(to: CGPoint(x: (frame.origin.x + width/2), y: frame.origin.y))
+        //        path.addLine(to: CGPoint(x: (frame.origin.x + width/2), y: (frame.origin.y + height)))
+        let center = CGPoint(x: (frame.origin.x + width/2), y: (frame.origin.y + height/2))
+        path.addArc(withCenter: center, radius: width/2, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: true)
         
         let perLayer = CAShapeLayer()
-        perLayer.lineWidth = 1;
-        perLayer.strokeColor = UIColor.orange.cgColor
+        perLayer.lineWidth = 2;
+        perLayer.fillColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5).cgColor
         perLayer.path = path.cgPath
         
         return perLayer
@@ -98,6 +120,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         let width = outterView.frame.width
         //let width = self.view.frame.width
         //let height = self.view.frame.height
+        let resource = ApplicationResource.sharedInstance
         
         let center = CGPoint(x: width/2, y: width/2)
         
@@ -127,11 +150,27 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
                 text.text = tickText;
                 let font = UIFont(name: "Arial", size: CGFloat(8))
                 text.font = font;
-                text.textColor = UIColor.brown
+                
+                let perPart = (Double(num) - 22.5)/45
+                
+                var name = ""
+                if perPart < 0 || perPart > 7{
+                    name = names[4]
+                }else{
+                    var index = Int(perPart) + 1 + 4
+                    index = index > 7 ? index - 8 : index
+                    name = names[index]
+                }
+                
+                let aliasName = trigramNamesMapping[name]
+                let fiveElement = defaultTrigramList[aliasName!]!.fiveElement
+                let textColor = resource.getColorByFiveElement(fiveElement.rawValue)
+                
+                text.textColor = textColor
                 text.textAlignment = .center;
                 let angel = startAngel >= 0 ? -startAngel : abs(startAngel)
                 text.transform = CGAffineTransform(rotationAngle: CGFloat(angel + M_PI/2))
-                print(startAngel)
+                //print(startAngel)
                 //text.backgroundColor = UIColor.blue
                 //self.view.addSubview(text)
                 //eightTrigramView.addSubview(text)
@@ -165,7 +204,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         view.center = center
-        view.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.3)
+        view.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
         view.layer.cornerRadius = view.frame.size.height/2
         view.layer.masksToBounds = true
         gravityInnerView = view
@@ -200,12 +239,28 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         let angelText = (newHeading.magneticHeading - 180) >= 0 ? (newHeading.magneticHeading - 180) :  (newHeading.magneticHeading + 180)
         //print(angelText)
         
+        let ca = Int(angelText)
+        var name = "离"
+        
+        let perPart = (Double(ca) - 22.5)/45
+        if perPart < 0 || perPart > 7{
+            name = names[4]
+        }else{
+            var index = Int(perPart) + 1 + 4
+            index = index > 7 ? index - 8 : index
+            name = names[index]
+        }
+
+        
+        let aliasName = trigramNamesMapping[name]
+        let positionName = defaultTrigramList[aliasName!]?.positonName
+        
         
         let angel = CGAffineTransform(rotationAngle: val)
         eightTrigramView.transform = angel
         outterView.transform = angel
         
-        lbAngelText.text = Int(angelText).description
+        lbAngelText.text = positionName! + "-" + Int(angelText).description
     }
     
     let names = ["坎","艮","震","巽","离","坤","兑","乾"]
@@ -220,24 +275,38 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             locationManager.startUpdatingHeading()
             
             isDirectionStopped = false
-
+            
             btnDirection.setTitle("定坐向", for: .normal)
+            btnHouseDirection.isEnabled = false
+            lbHomeDirection.text = "坐向"
         }
         else
         {
-            var name = ""
+            
+            var name = "坎"
+            var targetName = "离"
             let currentAngel = Int(lbAngelText.text!)
             //22.5 = 45/2
             if let ca = currentAngel
             {
                 let perPart = (Double(ca) - 22.5)/45
-                if perPart < 0 {
+                if perPart < 0 || perPart > 7{
                     name = names[0]
                 }else{
                     name = names[Int(perPart) + 1]
                 }
                 
-                lbHomeDirection.text = name
+                if perPart < 0 || perPart > 7{
+                    targetName = names[4]
+                }else{
+                    var index = Int(perPart) + 1 + 4
+                    index = index > 7 ? index - 8 : index
+                    targetName = names[index]
+                }
+                
+                houseTrigramName = name
+                
+                lbHomeDirection.text = "坐:" + name + " 向:" + targetName
             }
             
             manager.stopGyroUpdates()
@@ -247,9 +316,31 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             isDirectionStopped = true
             
             btnDirection.setTitle("复位", for: .normal)
+            
+            btnHouseDirection.isEnabled = true
         }
     }
     
+    var houseTrigramName = "坎"
+    
+    @IBOutlet weak var btnHouseDirection: UIButton!
+    
+    @IBAction func btnHourseDirectionTap(_ sender: Any) {
+        
+        let c = self.navigationController?.storyboard?.instantiateViewController(withIdentifier: "HouseTrigramViewController") as! HouseTrigramViewController
+        
+        c.houseTrigramName = houseTrigramName
+        
+        self.navigationController?.pushViewController(c, animated: true)
+        
+    }
+    @IBAction func biSettingTap(_ sender: Any) {
+        
+        let controller = self.navigationController?.storyboard?.instantiateViewController(withIdentifier: "settingTableViewController") as! SettingTableViewController
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

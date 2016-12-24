@@ -25,7 +25,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="mQx-f9-Nos" secondAttribute="height" multiplier="1:2" id="Nki-rx-jm6"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>

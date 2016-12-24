@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import core
 
  class EightTrigramTriangelPartView: UIView {
 
@@ -31,6 +32,8 @@ import UIKit
 
     func setup() {
         
+        let colorDic = ApplicationResource.sharedInstance.colorDictionary;
+        
         //var verticalArrayView = Array<UIStackView>()
         var cellWidth : CGFloat!
         
@@ -46,34 +49,42 @@ import UIKit
             cell.lbRightTip.text = ""
             cell.lbCenterTip.text = "坎"  //5
             cell.lbCenterTip.textColor = UIColor.white
+            
+            cell.vDrawTriangel.fillColor = colorDic["Blue"]!
             if i == 7 {
                 cell.lbCenterTip.text = "巽" //8
+                cell.vDrawTriangel.fillColor = colorDic["Green"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI - M_PI/4  ))
             }
             if i == 8 {
                 cell.lbCenterTip.text = "坤"  //2
+                cell.vDrawTriangel.fillColor = colorDic["Brown"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI + M_PI/4  ))
             }
             if i == 2 {
                 cell.lbCenterTip.text = "艮"  //6
-
+                cell.vDrawTriangel.fillColor = colorDic["Brown"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI/4  ))
             }
             if i == 3 {
                 cell.lbCenterTip.text = "震"  //7
+                cell.vDrawTriangel.fillColor = colorDic["Green"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI/2  ))
             }
             
             if i == 4 {
                 cell.lbCenterTip.text = "乾"  //4
+                 cell.vDrawTriangel.fillColor = colorDic["Yellow"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( -M_PI/4  ))
             }
             if i == 5 {
                 cell.lbCenterTip.text = "兑"  //3
+                cell.vDrawTriangel.fillColor = colorDic["Yellow"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( -M_PI/2  ))
             }
             if i == 6 {
                 cell.lbCenterTip.text = "离"  //1 
+                 cell.vDrawTriangel.fillColor = colorDic["Red"]!
                 cell.vDrawTriangel.transform = CGAffineTransform(rotationAngle: CGFloat( M_PI  ))
             }
             
