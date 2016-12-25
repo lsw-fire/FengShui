@@ -15,6 +15,11 @@
 		192089C51E09856200AE1370 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192089C41E09856200AE1370 /* InnerView.swift */; };
 		19A25EEC1E079439003B1E90 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A25EEB1E079439003B1E90 /* TestViewController.swift */; };
 		19A25EEE1E079565003B1E90 /* TriangelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A25EED1E079565003B1E90 /* TriangelView.swift */; };
+		19B71ED21E1022B4005ADA73 /* Step1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ECD1E1022B3005ADA73 /* Step1.PNG */; };
+		19B71ED31E1022B4005ADA73 /* Step4.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ECE1E1022B3005ADA73 /* Step4.PNG */; };
+		19B71ED41E1022B4005ADA73 /* Step3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ECF1E1022B4005ADA73 /* Step3.PNG */; };
+		19B71ED51E1022B4005ADA73 /* Step2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ED01E1022B4005ADA73 /* Step2.PNG */; };
+		19B71ED61E1022B4005ADA73 /* Step5.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ED11E1022B4005ADA73 /* Step5.PNG */; };
 		19D9A3AB1E0D637600C7F0EF /* TrigramViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */; };
 		19D9A3AC1E0D637600C7F0EF /* TrigramViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */; };
 		19D9A3AD1E0D637600C7F0EF /* TrigramViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3AA1E0D637600C7F0EF /* TrigramViewContainer.swift */; };
@@ -74,6 +79,11 @@
 		192089C41E09856200AE1370 /* InnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerView.swift; sourceTree = "<group>"; };
 		19A25EEB1E079439003B1E90 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		19A25EED1E079565003B1E90 /* TriangelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangelView.swift; sourceTree = "<group>"; };
+		19B71ECD1E1022B3005ADA73 /* Step1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step1.PNG; sourceTree = "<group>"; };
+		19B71ECE1E1022B3005ADA73 /* Step4.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step4.PNG; sourceTree = "<group>"; };
+		19B71ECF1E1022B4005ADA73 /* Step3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step3.PNG; sourceTree = "<group>"; };
+		19B71ED01E1022B4005ADA73 /* Step2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step2.PNG; sourceTree = "<group>"; };
+		19B71ED11E1022B4005ADA73 /* Step5.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step5.PNG; sourceTree = "<group>"; };
 		19D9A3A41E0D04B900C7F0EF /* core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrigramViewCell.swift; sourceTree = "<group>"; };
 		19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrigramViewCell.xib; sourceTree = "<group>"; };
@@ -126,11 +136,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19B71ECC1E10228B005ADA73 /* ManualGuidImages */ = {
+			isa = PBXGroup;
+			children = (
+				19B71ECD1E1022B3005ADA73 /* Step1.PNG */,
+				19B71ECE1E1022B3005ADA73 /* Step4.PNG */,
+				19B71ECF1E1022B4005ADA73 /* Step3.PNG */,
+				19B71ED01E1022B4005ADA73 /* Step2.PNG */,
+				19B71ED11E1022B4005ADA73 /* Step5.PNG */,
+			);
+			name = ManualGuidImages;
+			sourceTree = "<group>";
+		};
 		19F5E3F61E0237AE001C9157 = {
 			isa = PBXGroup;
 			children = (
 				19D9A3B81E0E9E2900C7F0EF /* core.framework */,
 				19D9A3A41E0D04B900C7F0EF /* core.framework */,
+				19B71ECC1E10228B005ADA73 /* ManualGuidImages */,
 				19F5E4011E0237AF001C9157 /* fengshui */,
 				19F5E4191E0237AF001C9157 /* fengshuiTests */,
 				19F5E4241E0237AF001C9157 /* fengshuiUITests */,
@@ -315,12 +338,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B71ED51E1022B4005ADA73 /* Step2.PNG in Resources */,
 				19F5E4341E026774001C9157 /* Eight-Tigram-Compass.jpg in Resources */,
+				19B71ED21E1022B4005ADA73 /* Step1.PNG in Resources */,
+				19B71ED31E1022B4005ADA73 /* Step4.PNG in Resources */,
 				192089BB1E08D90400AE1370 /* EightTrigramView.xib in Resources */,
 				19F5E4101E0237AF001C9157 /* LaunchScreen.storyboard in Resources */,
 				19D9A3AC1E0D637600C7F0EF /* TrigramViewCell.xib in Resources */,
 				19F5E40D1E0237AF001C9157 /* Assets.xcassets in Resources */,
 				19F5E4081E0237AF001C9157 /* Main.storyboard in Resources */,
+				19B71ED41E1022B4005ADA73 /* Step3.PNG in Resources */,
+				19B71ED61E1022B4005ADA73 /* Step5.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

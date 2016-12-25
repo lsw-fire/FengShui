@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import core
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.tintColor = btnColor
         navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : btnColor]
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        if !UserDefaults.standard.bool(forKey: "firstLaunch"){
+            UserDefaults.standard.setValue(true, forKeyPath: "firstLaunch")
+            UserDefaults.standard.synchronize()
+            
+            let c = InstructionViewController()
+            c.imageNames = ["Step1.PNG","Step2.PNG","Step3.PNG","Step4.PNG","Step5.PNG"]
+            c.startMainController = {
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                //            let vc = storyBoard.instantiateViewController(withIdentifier: "CompassViewController") as! CompassViewController
+                
+                let root = storyBoard.instantiateViewController(withIdentifier: "navigationController") as! UINavigationController
+                
+                UIApplication.shared.keyWindow?.rootViewController =  root
+                
+                UIApplication.shared.keyWindow?.backgroundColor = UIColor.white
+                UIApplication.shared.keyWindow?.makeKeyAndVisible()
+            }
+            
+            self.window?.rootViewController = c
+            
+        }else{
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let root = storyBoard.instantiateViewController(withIdentifier: "navigationController") as! UINavigationController
+            
+            self.window?.rootViewController = root
+        }
+        
+        
+        self.window?.backgroundColor = UIColor.white
+        self.window?.makeKeyAndVisible()
 
         return true
     }

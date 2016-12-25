@@ -59,7 +59,9 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         
         outterView.backgroundColor = UIColor.clear
         
-        
+//        let trigram = ZiBaiGenerator.getHouseDirectionBy(selfTrigramName: "离", doorPositionTrigramName: "震", floorNumber: 18)
+//        
+//        print(trigram)
     }
     
     var defaultTextColor = UIColor.orange
@@ -259,13 +261,14 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         let angel = CGAffineTransform(rotationAngle: val)
         eightTrigramView.transform = angel
         outterView.transform = angel
-        
+        angelDegree = ca
         lbAngelText.text = positionName! + "-" + Int(angelText).description
     }
     
     let names = ["坎","艮","震","巽","离","坤","兑","乾"]
     
     var isDirectionStopped = false
+    var angelDegree : Int?
     
     @IBAction func btnConfirmDirection(_ sender: Any) {
         
@@ -285,7 +288,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             
             var name = "坎"
             var targetName = "离"
-            let currentAngel = Int(lbAngelText.text!)
+            let currentAngel = angelDegree
             //22.5 = 45/2
             if let ca = currentAngel
             {

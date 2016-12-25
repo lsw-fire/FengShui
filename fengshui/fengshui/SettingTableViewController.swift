@@ -29,6 +29,25 @@ class SettingTableViewController: UITableViewController {
 
     @IBOutlet weak var btnInstruction: UIButton!
     @IBAction func btnInstructionTap(_ sender: Any) {
+        
+        let c = InstructionViewController()
+        c.imageNames = ["Step1.PNG","Step2.PNG","Step3.PNG","Step4.PNG","Step5.PNG"]
+        c.startMainController = {
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//            let vc = storyBoard.instantiateViewController(withIdentifier: "CompassViewController") as! CompassViewController
+            
+            let root = storyBoard.instantiateViewController(withIdentifier: "navigationController") as! UINavigationController
+            
+            UIApplication.shared.keyWindow?.rootViewController =  root
+            
+            UIApplication.shared.keyWindow?.backgroundColor = UIColor.white
+            UIApplication.shared.keyWindow?.makeKeyAndVisible()
+        }
+            
+        UIApplication.shared.keyWindow?.rootViewController = c
+        UIApplication.shared.keyWindow?.backgroundColor = UIColor.white
+        //UIApplication.shared.keyWindow?.makeKeyAndVisible()
     
     }
     
