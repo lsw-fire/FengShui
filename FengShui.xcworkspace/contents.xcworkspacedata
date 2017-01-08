@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../zibai/zibai.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../calendar/calendar/lunar.calendar.xcodeproj">
    </FileRef>
    <FileRef
