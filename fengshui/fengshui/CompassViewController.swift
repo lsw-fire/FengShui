@@ -80,7 +80,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         super.viewWillAppear(animated)
         
         enable24Mountain = Application.sharedInstance.getEnable24Mountain()
-        
+     
         createOutterView()
     }
     
@@ -142,8 +142,9 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         
         outterView.layer.sublayers?.removeAll()
         
+        let width = UIScreen.main.bounds.width
         //let width = eightTrigramView.frame.width + 20
-        let width = outterView.frame.width
+        //let width = outterView.frame.width
         //let width = self.view.frame.width
         //let height = self.view.frame.height
         let resource = ApplicationResource.sharedInstance
