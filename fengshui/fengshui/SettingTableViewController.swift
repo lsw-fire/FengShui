@@ -25,6 +25,8 @@ class SettingTableViewController: UITableViewController {
         Button.setStyleFor(button: btnInstruction)
         
         self.title = "设置"
+        
+        sEnable24Mountain.isOn = Application.sharedInstance.getEnable24Mountain()
     }
 
     @IBOutlet weak var btnInstruction: UIButton!
@@ -62,7 +64,7 @@ class SettingTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,7 +101,13 @@ class SettingTableViewController: UITableViewController {
             })
         }
     }
+    
+    @IBOutlet weak var sEnable24Mountain: UISwitch!
 
+    @IBAction func sEnable24MountainChanged(_ sender: UISwitch) {
+         Application.sharedInstance.setEnable24Mountain(value: sender.isOn)
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

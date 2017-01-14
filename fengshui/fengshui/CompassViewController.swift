@@ -19,14 +19,29 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
     @IBOutlet weak var lbAngelText: UILabel!
     @IBOutlet weak var eightTrigramView: EightTrigramTriangelPartView!
     
+    let twentyFourMountain = ["卯","甲",
+                              "寅","艮","丑",
+                              "癸","子","壬",
+                              "亥","乾","戌",
+                              "辛","酉","庚",
+                              "申","坤","未",
+                              "丁","午","丙",
+                              "巳","巽","辰",
+                              "乙",]
+    
     @IBOutlet weak var innerView: InnerView!
     var locationManager: CLLocationManager!
     
     let manager = CMMotionManager()
     
     @IBOutlet weak var outterView: UIView!
+    
+    var enable24Mountain = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         //self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
@@ -40,7 +55,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         
         eightTrigramView.setup()
         
-        createOutterView()
+        
         
         createGravityInnerView()
         
@@ -59,10 +74,16 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         
         outterView.backgroundColor = UIColor.clear
         
-//        let trigram = ZiBaiGenerator.getHouseDirectionBy(selfTrigramName: "离", doorPositionTrigramName: "震", floorNumber: 18)
-//        
-//        print(trigram)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        enable24Mountain = Application.sharedInstance.getEnable24Mountain()
+        
+        createOutterView()
+    }
+    
     
     var defaultTextColor = UIColor.orange
     
@@ -118,6 +139,9 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
     }
     
     func createOutterView() {
+        
+        outterView.layer.sublayers?.removeAll()
+        
         //let width = eightTrigramView.frame.width + 20
         let width = outterView.frame.width
         //let width = self.view.frame.width
@@ -129,28 +153,61 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
         let perAngle = 2 * M_PI / 360;
         //我们需要计算出每段弧线的起始角度和结束角度
         //这里我们从- M_PI 开始，我们需要理解与明白的是我们画的弧线与内侧弧线是同一个圆心
+        
+        let circlePath = UIBezierPath.init(arcCenter: center, radius: (width-20)/2, startAngle:0, endAngle:  CGFloat(M_PI * 2), clockwise: true)
+        let circLayer = CAShapeLayer()
+        circLayer.path = circlePath.cgPath
+        //circLayer.lineWidth = 0.1;
+        circLayer.fillColor = UIColor.clear.cgColor
+        circLayer.strokeColor = UIColor.lightGray.cgColor
+        
+        
+        let innerCirclePath = UIBezierPath.init(arcCenter: center, radius: (width-75)/2, startAngle:0, endAngle:  CGFloat(M_PI * 2), clockwise: true)
+        let innerCircLayer = CAShapeLayer()
+        innerCircLayer.path = innerCirclePath.cgPath
+        //circLayer.lineWidth = 1;
+        innerCircLayer.fillColor = UIColor.clear.cgColor
+        innerCircLayer.strokeColor = UIColor.lightGray.cgColor
+        
+        
+        var indexIn24 = 0
+        
         for i in 0...359 {
             
             let startAngel = (-M_PI + perAngle * Double(i))
             let endAngel   = startAngel + perAngle/10
             
-            let tickPath = UIBezierPath.init(arcCenter: center, radius: (width-30)/2, startAngle:CGFloat(startAngel), endAngle: CGFloat(endAngel), clockwise: true)
+            var pathWidth = width - 60
+            var seprateAngle = 10
+            
+            var sAngel = startAngel
+            var eAngel = endAngel
+            if enable24Mountain {
+                sAngel = startAngel + 1.96
+                eAngel = endAngel + 1.96
+                pathWidth = width - 50
+                seprateAngle = 15
+            }
+            
+            let tickPath = UIBezierPath.init(arcCenter: center, radius: (pathWidth)/2, startAngle:CGFloat(sAngel), endAngle: CGFloat(eAngel), clockwise: true)
             
             let perLayer = CAShapeLayer()
             
-            if (i % 10 == 0) {
+            if (i % seprateAngle == 0) {
                 
-                perLayer.strokeColor = UIColor.black.cgColor
-                perLayer.lineWidth   = 10;
+                perLayer.strokeColor = UIColor.gray.cgColor
+                perLayer.lineWidth   = enable24Mountain ? 15 : 10;
                 
-                let point = self.calculateTextPositonWithArcCenter(center: center, angel: CGFloat(startAngel), r: (width-15)/2)
+                let pointWidth = enable24Mountain ? (width - 50) : (width - 40)
+                let point = self.calculateTextPositonWithArcCenter(center: center, angel: CGFloat(startAngel), r: (pointWidth)/2)
                 
                 let num = i - 270 <= 0 ? abs(i - 270) : 360 - abs( i - 270)
                 let tickText = String.init(format: "%d", num)
                 
                 let text = UILabel(frame: CGRect(x: point.x - 10, y: point.y - 10, width: 20, height: 20))
-                text.text = tickText;
-                let font = UIFont(name: "Arial", size: CGFloat(8))
+                text.text = enable24Mountain ? twentyFourMountain[indexIn24] : tickText
+                let fontSize = enable24Mountain ? CGFloat(18) : CGFloat(8)
+                let font = UIFont(name: "Arial", size: fontSize)
                 text.font = font;
                 
                 let perPart = (Double(num) - 22.5)/45
@@ -171,24 +228,32 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
                 text.textColor = textColor
                 text.textAlignment = .center;
                 let angel = startAngel >= 0 ? -startAngel : abs(startAngel)
-                text.transform = CGAffineTransform(rotationAngle: CGFloat(angel + M_PI/2))
-                //print(startAngel)
-                //text.backgroundColor = UIColor.blue
-                //self.view.addSubview(text)
-                //eightTrigramView.addSubview(text)
+                let tranformAngel = enable24Mountain ? CGFloat(angel - M_PI/2) : CGFloat(angel + M_PI/2)
+                text.transform = CGAffineTransform(rotationAngle: tranformAngel)
                 outterView.addSubview(text)
                 
+                if enable24Mountain {
+                    indexIn24 = indexIn24 + 1
+                }
                 
             }else{
-                perLayer.strokeColor = UIColor.gray.cgColor
-                perLayer.lineWidth   = 5;
                 
+                if !enable24Mountain {
+                    perLayer.strokeColor = UIColor.gray.cgColor
+                    perLayer.lineWidth   = 5;
+                }
+    
             }
             
             perLayer.path = tickPath.cgPath;
-            //self.view.layer.addSublayer(perLayer)
-            //eightTrigramView.layer.addSublayer(perLayer)
+            
+            if enable24Mountain {
+                outterView.layer.addSublayer(innerCircLayer)
+                outterView.layer.addSublayer(circLayer)
+            }
+           
             outterView.layer.addSublayer(perLayer)
+            
             
         }
         
@@ -252,7 +317,7 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             index = index > 7 ? index - 8 : index
             name = names[index]
         }
-
+        
         
         let aliasName = trigramNamesMapping[name]
         let positionName = defaultTrigramList[aliasName!]?.positonName

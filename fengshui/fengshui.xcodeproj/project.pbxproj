@@ -20,6 +20,7 @@
 		19B71ED41E1022B4005ADA73 /* Step3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ECF1E1022B4005ADA73 /* Step3.PNG */; };
 		19B71ED51E1022B4005ADA73 /* Step2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ED01E1022B4005ADA73 /* Step2.PNG */; };
 		19B71ED61E1022B4005ADA73 /* Step5.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 19B71ED11E1022B4005ADA73 /* Step5.PNG */; };
+		19B86E5D1E2A5F1F004F5CCC /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B86E5C1E2A5F1F004F5CCC /* Application.swift */; };
 		19D9A3AB1E0D637600C7F0EF /* TrigramViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */; };
 		19D9A3AC1E0D637600C7F0EF /* TrigramViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */; };
 		19D9A3AD1E0D637600C7F0EF /* TrigramViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9A3AA1E0D637600C7F0EF /* TrigramViewContainer.swift */; };
@@ -84,6 +85,7 @@
 		19B71ECF1E1022B4005ADA73 /* Step3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step3.PNG; sourceTree = "<group>"; };
 		19B71ED01E1022B4005ADA73 /* Step2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step2.PNG; sourceTree = "<group>"; };
 		19B71ED11E1022B4005ADA73 /* Step5.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Step5.PNG; sourceTree = "<group>"; };
+		19B86E5C1E2A5F1F004F5CCC /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		19D9A3A41E0D04B900C7F0EF /* core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D9A3A81E0D637600C7F0EF /* TrigramViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrigramViewCell.swift; sourceTree = "<group>"; };
 		19D9A3A91E0D637600C7F0EF /* TrigramViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrigramViewCell.xib; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				192089BC1E08F05300AE1370 /* EightTrigramView.swift */,
 				192089C01E08F79100AE1370 /* EightTrigramDrawView.swift */,
 				19D9A3B61E0E50C400C7F0EF /* HouseSelfCompareViewController.swift */,
+				19B86E5C1E2A5F1F004F5CCC /* Application.swift */,
 			);
 			path = fengshui;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B86E5D1E2A5F1F004F5CCC /* Application.swift in Sources */,
 				19D9A3B11E0E465B00C7F0EF /* SettingTableViewController.swift in Sources */,
 				192089C31E09189400AE1370 /* CompassViewController.swift in Sources */,
 				19D9A3B71E0E50C400C7F0EF /* HouseSelfCompareViewController.swift in Sources */,

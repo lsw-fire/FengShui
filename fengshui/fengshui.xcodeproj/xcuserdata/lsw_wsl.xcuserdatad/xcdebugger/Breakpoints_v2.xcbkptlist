@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "fengshui/CompassViewController.swift"
-            timestampString = "504355095.625751"
+            timestampString = "506095944.930134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
             landmarkName = "CompassViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "fengshui/CompassViewController.swift"
-            timestampString = "504355095.625751"
+            timestampString = "506095944.930134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "btnConfirmDirection(_:)"
             landmarkType = "7">
          </BreakpointContent>
