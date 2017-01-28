@@ -14,6 +14,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate  {
     @IBOutlet weak var lbDegree: UILabel!
     @IBOutlet weak var imgComapss: UIImageView!
     var locationManager: CLLocationManager!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

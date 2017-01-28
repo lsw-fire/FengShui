@@ -105,6 +105,8 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
                         let x = self.gravityInnerViewCenter.x + CGFloat(gravity.x * 100)
                         let y = self.gravityInnerViewCenter.y + CGFloat(gravity.y * 100)
                         self.gravityInnerView.center = CGPoint(x: x, y: y)
+                        
+                        //data?.magneticField.accuracy.rawValue
                     }
                 })
             }
@@ -181,11 +183,13 @@ class CompassViewController: UIViewController , CLLocationManagerDelegate{
             var pathWidth = width - 60
             var seprateAngle = 10
             
+            // 0.13 来历
+            // 2*3.14/24 卯的位置 然后／2
             var sAngel = startAngel
             var eAngel = endAngel
             if enable24Mountain {
-                sAngel = startAngel + 1.96
-                eAngel = endAngel + 1.96
+                sAngel = startAngel + 0.13
+                eAngel = endAngel + 0.13
                 pathWidth = width - 50
                 seprateAngle = 15
             }
