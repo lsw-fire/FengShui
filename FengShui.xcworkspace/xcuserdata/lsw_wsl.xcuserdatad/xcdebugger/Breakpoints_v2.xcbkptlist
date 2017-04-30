@@ -223,8 +223,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
             endingLineNumber = "196"
-            landmarkName = "ZiBaiGenerator"
-            landmarkType = "3">
+            landmarkName = "isKuiXingPosition(starNum:and:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -607,8 +607,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
             endingLineNumber = "242"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            landmarkName = "mountainYinYangDic"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -714,12 +714,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../zibai/zibai/AnalyzeViewController.swift"
-            timestampString = "507230050.998406"
+            timestampString = "515221293.676144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "loadContent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../zibai/zibai/AnalyzeViewController.swift"
+            timestampString = "515221293.676144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "loadContent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../zibai/zibai/AnalyzeViewController.swift"
+            timestampString = "515221293.676144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "getStayFaceToStarBy(stayTrigramName:stayPosition24:yunStarNum:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -730,28 +762,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../zibai/zibai/AnalyzeViewController.swift"
-            timestampString = "507216972.984333"
+            timestampString = "515221293.676144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "loadContent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../zibai/zibai/AnalyzeViewController.swift"
-            timestampString = "507230050.998406"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "loadStarBy(star:position:isForward:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "tapGesture(obj:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

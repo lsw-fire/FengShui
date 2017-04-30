@@ -4,14 +4,18 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "9065EF3F2BD79D88DB184D715EEA8ECFE95BD386" : 9223372036854775807,
+    "04EE0F4D8832FF82E232AAEEEF63187C0D0971B3" : 9223372036854775807,
     "BA66F8F43450B22DFB80B4781FD1A23DF9C1B135" : 9223372036854775807,
-    "04EE0F4D8832FF82E232AAEEEF63187C0D0971B3" : 9223372036854775807
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : 9223372036854775807,
+    "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DA2FE177-7249-4572-B9FA-500596A8AE8A",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "9065EF3F2BD79D88DB184D715EEA8ECFE95BD386" : "core\/",
+    "04EE0F4D8832FF82E232AAEEEF63187C0D0971B3" : "zibai\/",
     "BA66F8F43450B22DFB80B4781FD1A23DF9C1B135" : "calendar\/",
-    "04EE0F4D8832FF82E232AAEEEF63187C0D0971B3" : "zibai\/"
+    "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3" : "SwiftyJSON\/",
+    "67620B5EFA902936DF04070AF595B76AB0333747" : "Alamofire\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "FengShui",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -23,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04EE0F4D8832FF82E232AAEEEF63187C0D0971B3"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67620B5EFA902936DF04070AF595B76AB0333747"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lsw-fire\/core.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9065EF3F2BD79D88DB184D715EEA8ECFE95BD386"
@@ -31,6 +40,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lsw-fire\/calendar.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BA66F8F43450B22DFB80B4781FD1A23DF9C1B135"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftyJSON\/SwiftyJSON.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C861FC00CEE0F6A6BE81FCFF6785FAA78C58EBB3"
     }
   ]
 }
